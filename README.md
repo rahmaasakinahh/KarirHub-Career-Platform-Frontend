@@ -1,151 +1,175 @@
-# KarirHub
 
-> **Platform rekrutmen digital** yang menghubungkan pencari kerja dengan perusahaan di Indonesia secara efisien dan transparan.
-
-## Deskripsi
-
-KarirHub adalah sebuah **platform rekrutmen digital** berbasis web yang dirancang sebagai Final Project untuk mata kuliah **Manajemen Basis Data D** di Institut Teknologi Sepuluh Nopember (ITS). Platform ini menghubungkan tiga pihak utama:
-
-- **Pencari Kerja (Job Seeker)** — mencari lowongan, melamar pekerjaan, melacak status lamaran, dan mengelola profil.
-- **Perusahaan (Company)** — memposting lowongan, mengelola pelamar, menjadwalkan wawancara, dan memantau proses rekrutmen.
-- **Admin** — memverifikasi akun perusahaan, mengelola master data skill, dan memantau aktivitas platform.
+# **KarirHub – Career Platform Frontend**
 
 ---
 
-## Fitur Utama
+KarirHub merupakan platform rekrutmen digital berbasis web yang menghubungkan pencari kerja dengan perusahaan melalui sistem pengelolaan lowongan, lamaran, dan proses rekrutmen yang terintegrasi.
 
-### Untuk Pencari Kerja
+Project ini dikembangkan sebagai Final Project mata kuliah Manajemen Basis Data di Institut Teknologi Sepuluh Nopember (ITS).
 
-- Pencarian lowongan dengan filter (kata kunci, kota, tipe pekerjaan, tipe kerja)
-- Melamar pekerjaan dengan cover letter
-- Dashboard dengan statistik lamaran
-- Notifikasi status lamaran
-- Profil dengan pendidikan, pengalaman kerja, dan skill
-
-### Untuk Perusahaan
-
-- Membuat, mengedit, dan mengelola lowongan pekerjaan
-- Melihat dan mengelola pelamar
-- Menyaring pelamar melalui tahapan rekrutmen
-- Menjadwalkan wawancara (online/onsite)
-- Notifikasi pelamar baru
-
-### Untuk Admin
-
-- Dashboard platform dengan statistik keseluruhan
-- Verifikasi akun perusahaan
-- Kelola master data skill
-- Pantau aktivitas platform
+## **Project Overview**
 
 ---
 
-## Teknologi
+KarirHub dirancang untuk mendukung proses rekrutmen melalui tiga peran utama:
 
-| Kategori            | Teknologi                               |
-| ------------------- | --------------------------------------- |
-| **Framework**       | React Router v7 (Framework Mode)        |
-| **UI**              | React 18, Tailwind CSS v3, Lucide Icons |
-| **Server**          | Hono + `react-router-hono-server`       |
-| **Database**        | Neon Postgres                           |
-| **Auth**            | Auth.js (Credentials Provider)          |
-| **Build Tool**      | Vite 6                                  |
-| **Package Manager** | npm                                     |
-| **Testing**         | Vitest + jsdom + Testing Library        |
-| **Type Checking**   | TypeScript                              |
+| Role | Description |
+| --- | --- |
+| **Job Seeker** | Mencari lowongan, mengajukan lamaran, dan memantau proses rekrutmen. |
+| **Company** | Mengelola lowongan, pelamar, dan tahapan seleksi. |
+| **Admin** | Melakukan verifikasi perusahaan, mengelola master data, dan memantau aktivitas platform. |
+
+## **Key Features**
 
 ---
 
-## Struktur Direktori
+### **1. Job Seeker**
 
-```
+---
+
+- Pencarian dan filter lowongan pekerjaan.
+- Pengajuan lamaran dengan cover letter.
+- Dashboard dan riwayat lamaran.
+- Pelacakan tahapan dan status rekrutmen.
+- Pengelolaan profil, pendidikan, pengalaman kerja, dan skill.
+- Notifikasi status lamaran.
+
+### **2. Company**
+
+---
+
+- Pembuatan dan pengelolaan lowongan pekerjaan.
+- Pengelolaan data pelamar.
+- Seleksi pelamar berdasarkan tahapan rekrutmen.
+- Penjadwalan wawancara online dan onsite.
+- Dashboard rekrutmen dan notifikasi pelamar.
+
+### **3. Admin**
+
+---
+
+- Dashboard statistik platform.
+- Verifikasi akun perusahaan.
+- Pengelolaan master data skill.
+- Pemantauan aktivitas platform.
+
+## **Tech Stack**
+
+---
+
+| Category | Technology |
+| --- | --- |
+| Frontend | React 18 |
+| Routing | React Router v7 |
+| Styling | Tailwind CSS v3 |
+| Programming Language | JavaScript, TypeScript |
+| Icons | Lucide React |
+| Build Tool | Vite 6 |
+| Server Framework | Hono |
+| Database Configuration | Neon PostgreSQL |
+| Authentication Configuration | Auth.js |
+| Testing | Vitest, Testing Library, jsdom |
+| Package Manager | npm |
+
+## **Project Structure**
+
+---
+
+```text
+KarirHub-Career-Platform-Frontend/
 ├── src/
-│   ├── app/                    # File-based routing (mimic Next.js App Router)
-│   │   ├── layout.jsx          # Root layout (Navbar + Footer + MobileBottomNav)
-│   │   ├── root.tsx            # HTML document root (SSR entry)
-│   │   ├── page.jsx            # Landing page
-│   │   ├── routes.ts           # Route tree generator
-│   │   ├── global.css          # Tailwind directives
-│   │   ├── login/              # Halaman login
-│   │   ├── register/           # Halaman registrasi
-│   │   ├── jobs/               # Daftar lowongan & detail
-│   │   ├── companies/          # Profil perusahaan
-│   │   ├── seeker/             # Dashboard, profil, lamaran (job seeker)
-│   │   ├── company/            # Dashboard, lowongan, pelamar (company)
-│   │   ├── admin/              # Dashboard, verifikasi, skill (admin)
-│   │   └── api/                # API routes (auth token, etc.)
+│   ├── app/
+│   │   ├── admin/
+│   │   ├── company/
+│   │   ├── companies/
+│   │   ├── seeker/
+│   │   ├── jobs/
+│   │   ├── login/
+│   │   ├── register/
+│   │   └── api/
 │   ├── components/
-│   │   ├── layout/             # Navbar, Sidebar, Footer, MobileBottomNav
-│   │   ├── jobs/               # JobCard
-│   │   ├── applications/       # StageTimeline
-│   │   └── shared/             # StatusBadge, SkillBadge
 │   ├── context/
-│   │   └── AppContext.jsx      # Auth state & role management
-│   ├── data/                   # Mock data (jobs, companies, applications, etc.)
+│   ├── data/
 │   ├── lib/
-│   │   └── utils.js            # Formatting helpers (salary, date, etc.)
-│   └── utils/                  # Custom hooks (useAuth, useUser, etc.)
-├── __create/                   # Server entry & infrastructure
-│   └── index.ts                # Hono server (Auth.js, Neon, API routing)
-├── plugins/                    # Custom Vite plugins
-├── public/                     # Static assets (PWA manifest, service worker, icons)
-├── test/                       # Test setup
-├── vite.config.ts              # Vite configuration
-├── react-router.config.ts      # React Router configuration
-├── tailwind.config.js          # Tailwind CSS configuration
-├── tsconfig.json               # TypeScript configuration
-└── package.json                # Dependencies & scripts
+│   └── utils/
+├── __create/
+├── plugins/
+├── public/
+├── test/
+├── package.json
+├── vite.config.ts
+├── tailwind.config.js
+├── react-router.config.ts
+├── tsconfig.json
+└── README.md
 ```
+
+## **How to Run**
 
 ---
 
-## Memulai
+### **1. Prerequisites**
 
-### Prasyarat
+---
 
-- Node.js 20+ (untuk compatibility)
-- npm 10+ (disarankan)
+- Node.js 20 atau lebih baru.
+- npm 10 atau lebih baru.
 
-### Instalasi
+### **2. Clone Repository**
+
+---
 
 ```bash
-# Clone repository
-git clone <repository-url>
-cd Final-Project-MBD-KarirHub
+git clone https://github.com/rahmaasakinahh/KarirHub-Career-Platform-Frontend.git
 
-# Install dependencies
+cd KarirHub-Career-Platform-Frontend
+```
+
+### **3. Install Dependencies**
+
+---
+
+```bash
 npm install
 ```
 
-### Menjalankan Development Server
+### **4. Run Development Server**
+
+---
 
 ```bash
 npm run dev
 ```
 
-Server akan berjalan di `http://localhost:4000`.
+Akses aplikasi melalui:
 
-### Type Checking
+http://localhost:4000
+
+### **5. Build Project**
+
+---
 
 ```bash
+npm run build
+```
+
+## **Testing and Type Checking**
+
+---
+
+```bash
+# Type checking
 npm run typecheck
-```
 
-### Testing
-
-```bash
-# Run all tests
+# Testing
 npx vitest run
-
-# Run specific test pattern
-npx vitest run <pattern>
 ```
 
----
-
-## Lisensi
-
-Proyek ini dibuat untuk keperluan akademik.
+## **Notes**
 
 ---
 
-> **Catatan:** Proyek ini merupakan prototype dengan data mock yang dirancang untuk mendemonstrasikan konsep platform rekrutmen digital dan skema database yang lengkap. Server-side (Hono + Neon Postgres + Auth.js) telah dikonfigurasi untuk deployment production.
+- Repository ini berfokus pada implementasi frontend KarirHub.
+- Aplikasi merupakan prototype yang menggunakan mock data untuk mendemonstrasikan alur rekrutmen berdasarkan peran pengguna.
+- Pengelolaan sesi pengguna pada prototype menggunakan React Context dan Local Storage.
+- Konfigurasi Hono, Neon PostgreSQL, dan Auth.js telah tersedia dalam project, tetapi fitur frontend belum sepenuhnya terintegrasi dengan database dan autentikasi backend.
